@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List(categories, id: \.self) { category in
-                NavigationLink(destination: Text(category)) {
+                NavigationLink(destination: EntryView(category: category)) {
                     Text(category)
                 }
             }
@@ -24,7 +24,7 @@ struct ContentView: View {
         }
         .alert(isPresented: $showingAlert) {
             Alert(title: Text("Loading Error"),
-            message: Text("There was a problem loading the data"),
+            message: Text("There was a problem loading the API categories"),
                   dismissButton: .default(Text("OK")))
         }
     }
